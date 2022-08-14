@@ -44,8 +44,8 @@ let deltaTime
 function startTimer() {
     intervalid = setInterval(() => {
     const startTime = pickedDate.getTime();
-   
     deltaTime = startTime - Date.now();
+    
     const milliseconds = convertMs(deltaTime);
     // console.log(milliseconds);
     const { days, hours, minutes, seconds } = milliseconds;
