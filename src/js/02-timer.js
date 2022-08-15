@@ -38,11 +38,11 @@ flatpickr("#datetime-picker", options);
 
 refs.startBtn.addEventListener('click', startTimer)
 
-let intervalid
+let intervalId
 let deltaTime
 
 function startTimer() {
-    intervalid = setInterval(() => {
+    intervalId = setInterval(() => {
     const startTime = pickedDate.getTime();
     deltaTime = startTime - Date.now();
     
@@ -53,17 +53,15 @@ function startTimer() {
     refs.hours.textContent = `${hours}`;
     refs.minutes.textContent = `${minutes}`;
     refs.seconds.textContent = `${seconds}`;
-    onStopTimer();
-   }, 1000);
-
-}
-
-function onStopTimer() {
-    if (deltaTime <= 1000 || deltaTime === 0) {
-      btnStart.disabled = true;
+    
+    if (deltaTime <= 1000 || deltaTime <= 0) {
+      refs.startBtn.disabled = true;
       clearInterval(intervalId);
     }
- }
+   }, 1000);
+    
+}
+
 
 function convertMs(ms) {
     // Number of milliseconds per unit of time
